@@ -5,9 +5,6 @@
   "bin": {
     "easy-ui5": "index.js"
   },
-  "scripts": {
-    "format": "prettier --write ."
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ui5-community/create-easy-ui5.git"
@@ -19,10 +16,41 @@
     "url": "https://github.com/ui5-community/create-easy-ui5/issues"
   },
   "homepage": "https://github.com/ui5-community/create-easy-ui5#readme",
+  "scripts": {
+    "start": "node index.js",
+    "format": "prettier --write .",
+    "release:version": "lerna version",
+    "release:publish": "lerna publish from-git --yes --no-verify-access",
+    "release:publish-manual": "lerna publish from-package --yes --no-verify-access",
+    "prepare": "husky install",
+    "hooks:pre-commit": "lint-staged",
+    "hooks:commit-msg": "commitlint -e"
+  },
   "dependencies": {
-    "generator-easy-ui5": "^3.2.2"
+    "generator-easy-ui5": "^3.3.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "16.2.1",
+    "@commitlint/config-conventional": "16.2.1",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^7.0.4",
+    "lerna": "^4.0.0",
+    "lint-staged": "12.3.4",
     "prettier": "^2.5.1"
+  },
+  "lint-staged": {
+    "*.{ts,js,json,md,yml}": [
+      "prettier --write ."
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }

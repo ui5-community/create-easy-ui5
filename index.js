@@ -31,5 +31,5 @@ const generators = env
 // finally, run the subgenerator
 env.run([generators[0].namespace].concat(args), {
   // verbose: this.options.verbose,
-  // embedded: true,
+  embedded: true,
 });
