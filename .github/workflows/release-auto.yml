@@ -17,7 +17,7 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: yarn --no-lockfile
+        run: npm ci
 
       - name: Publish to NPM
         run: |

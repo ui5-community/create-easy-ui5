@@ -1,0 +1,12 @@
+{
+  "npmClient": "npm",
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    },
+    "version": {
+      "message": "chore(release): publish"
+    }
+  },
+  "version": "0.1.0"
+}
