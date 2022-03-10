@@ -1,17 +1,10 @@
 #!/usr/bin/env node
 
-// extract the arguments after the first occurrence of easy-ui5
-let include = false;
-const args = process.argv.reduce((currentValue, element) => {
-  if (include) {
-    currentValue.push(element);
-  } else {
-    if (element.includes("easy-ui5")) {
-      include = true;
-    }
-  }
-  return currentValue;
-}, []);
+// extract the arguments (remove "easy-ui5" if present)
+const args = process.argv.slice(2);
+if (args[0] === "easy-ui5") {
+  args.splice(0, 1);
+}
 
 // create the env for the plugin generator
 const yeoman = require("yeoman-environment");
@@ -22,14 +15,20 @@ const env = yeoman.createEnv(args, {
 // lookup the easy-ui5 generator
 const generators = env
   .lookup({
-    localOnly: true,
+    localOnly: false,
   })
   .filter((sub) => {
     return sub.namespace === "easy-ui5:app";
   });
 
 // finally, run the subgenerator
-env.run([generators[0].namespace].concat(args), {
-  // verbose: this.options.verbose,
-  embedded: true,
-});
+if (generators[0]?.namespace) {
+  env.run([generators[0].namespace].concat(args), {
+    // verbose: this.options.verbose,
+    embedded: true,
+  });
+} else {
+  console.error(
+    "Easy-UI5 cannot be found! Please run 'npm i -g generator-easy-ui5'!"
+  );
+}
