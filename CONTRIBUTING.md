@@ -22,9 +22,9 @@ If you need help setting something up, or if you have questions regarding `creat
 4. **Current bug**: The bug can be reproduced in the most current version of the relevant module(s).
 5. **Reproducible bug**: There are step-by-step instructions provided on how to reproduce the issue.
 6. **Well-documented**:
-    * Precisely state the expected and the actual behavior.
-    * Give information about the environment in which the issue occurs (OS/Platform, Node.js version, etc.).
-    * Generally, give as much additional information as possible.
+   - Precisely state the expected and the actual behavior.
+   - Give information about the environment in which the issue occurs (OS/Platform, Node.js version, etc.).
+   - Generally, give as much additional information as possible.
 7. **Only one bug per report**: Open additional tickets for additional issues.
 8. **Please report bugs in English.**
 
@@ -38,21 +38,21 @@ GitHub offers labels to categorize issues. The labels can only be set and modifi
 
 #### General issue categories
 
-* **`bug`**: This issue is a bug in the code.
-* **`documentation`**: This issue is about wrong documentation.
-* **`enhancement`**: This is not a bug report, but an enhancement request.
+- **`bug`**: This issue is a bug in the code.
+- **`documentation`**: This issue is about wrong documentation.
+- **`enhancement`**: This is not a bug report, but an enhancement request.
 
 #### Status of an open issue
 
-* **`information required`**: The author is required to provide information.
-* **`good first issue`**: A newcomer may work on this.
-* **`help wanted`**: Additional help in analyzing this issue is required.
+- **`information required`**: The author is required to provide information.
+- **`good first issue`**: A newcomer may work on this.
+- **`help wanted`**: Additional help in analyzing this issue is required.
 
 #### Status/resolution of a closed issue
 
-* **`duplicate`**: The issue was already reported somewhere else.
-* **`invalid`**: For any reason, this issue report will not be handled further. Possible reasons are lack of information, or that the issue does not apply anymore.
-* **`wontfix`**: While acknowledged to be an issue, a fix cannot or will not be provided.
+- **`duplicate`**: The issue was already reported somewhere else.
+- **`invalid`**: For any reason, this issue report will not be handled further. Possible reasons are lack of information, or that the issue does not apply anymore.
+- **`wontfix`**: While acknowledged to be an issue, a fix cannot or will not be provided.
 
 ### Issue Reporting Disclaimer
 
@@ -97,15 +97,15 @@ There are three important things to know:
 
 The technical requirements to contribute to the project are the following:
 
-* A current version of [Node.js](https://nodejs.org/)
-* A code editor (preferably the free [Microsoft Visual Studio Code](https://code.visualstudio.com/))
+- A current version of [Node.js](https://nodejs.org/)
+- A code editor (preferably the free [Microsoft Visual Studio Code](https://code.visualstudio.com/))
 
 #### Getting Started
 
 To get started contributing to this project you need to do the following steps:
 
-* Clone the repository
-* Run `npm install`
+- Clone the repository
+- Run `npm install`
 
 #### Commit Messages format
 
@@ -139,13 +139,14 @@ This repository uses [Lerna](https://github.com/lerna/lerna) to manage the relea
 
 ### Release Process
 
-Performing a release requires push permissions to the repository.
+First, make sure that you pull the latest state of the GitHub repository and then proceed with the following steps:
 
-1. Ensure you are on the default branch and synced with origin.
-2. `yarn run release:version`
-3. Follow the lerna CLI instructions.
-4. Track the newly pushed **commit** with the message (`chore(release): publish`) which triggers the `Release (automatic)` GitHub action until successful completion.
-5. Inspect the newly artifacts published on npmjs.com.
+1. Update the version: `npm version patch|minor|major`
+2. Update the changelog: `npm run changelog`, commit and amend the version change from step 1: `git add . && git commit --amend --no-edit`
+3. Push the new commit and tag: `git push origin --tags`
+4. Inspect the newly artifacts published on npmjs.com.
+
+A GitHub action will do the needful once the new tag has been pushed.
 
 ### Upgrading the version of the dependencies
 

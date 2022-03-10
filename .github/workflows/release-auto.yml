@@ -2,7 +2,8 @@ name: Release (automatic)
 
 on:
   push:
-    branches: [ main ]
+    tags:
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   release:
@@ -14,7 +15,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install dependencies
         run: npm ci
@@ -23,6 +24,6 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
           echo ":::: Publishing as $(npm whoami)"
-          npm run release:publish
+          npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_AUTH_TOKEN }}

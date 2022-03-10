@@ -16,12 +16,13 @@
     "url": "https://github.com/ui5-community/create-easy-ui5/issues"
   },
   "homepage": "https://github.com/ui5-community/create-easy-ui5#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "start": "node index.js",
     "format": "prettier --write .",
-    "release:version": "lerna version",
-    "release:publish": "lerna publish from-git --yes --no-verify-access",
-    "release:publish-manual": "lerna publish from-package --yes --no-verify-access",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "prepare": "husky install",
     "hooks:pre-commit": "lint-staged",
     "hooks:commit-msg": "commitlint -e"
@@ -32,9 +33,9 @@
   "devDependencies": {
     "@commitlint/cli": "16.2.1",
     "@commitlint/config-conventional": "16.2.1",
+    "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "3.3.0",
     "husky": "^7.0.4",
-    "lerna": "^4.0.0",
     "lint-staged": "12.3.4",
     "prettier": "^2.5.1"
   },

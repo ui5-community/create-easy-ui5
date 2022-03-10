@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install dependencies
         run: npm ci
@@ -19,6 +19,6 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
           echo ":::: Publishing as $(npm whoami)"
-          npm run release:publish-manual
+          npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_AUTH_TOKEN }}
