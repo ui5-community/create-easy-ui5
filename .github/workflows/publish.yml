@@ -7,6 +7,9 @@ on:
       - "v*.*.*"
   workflow_dispatch: # Manual trigger
 
+env:
+  HUSKY_SKIP: true
+
 permissions:
   contents: read
   id-token: write # REQUIRED for trusted publishing (OIDC)

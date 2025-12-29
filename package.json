@@ -23,7 +23,7 @@
     "start": "node index.js",
     "format": "prettier --write .",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "prepare": "husky",
+    "prepare": "node ./.husky/skip.js || husky",
     "hooks:pre-commit": "lint-staged",
     "hooks:commit-msg": "commitlint -e",
     "preversion": "npm run changelog && git add CHANGELOG.md"
