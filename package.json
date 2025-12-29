@@ -1,6 +1,6 @@
 {
   "name": "create-easy-ui5",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "npm-init wrapper for Easy-UI5",
   "bin": {
     "easy-ui5": "index.js"

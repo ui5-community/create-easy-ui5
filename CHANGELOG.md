@@ -1,10 +1,11 @@
-# [1.0.0](https://github.com/ui5-community/create-easy-ui5/compare/f9e81780ee499a24ab573e455cf15e9d190874d4...v1.0.0) (2022-03-10)
+## 1.0.0 (2025-12-29)
 
-### Bug Fixes
-
-- bugfix for arguments and polish docs ([29577d1](https://github.com/ui5-community/create-easy-ui5/commit/29577d14c99453aa869e63da28de1de4d8968862))
-- run easy-ui5 in embedded mode ([f9e8178](https://github.com/ui5-community/create-easy-ui5/commit/f9e81780ee499a24ab573e455cf15e9d190874d4))
-
-### Features
-
-- fully initalize the repo ([532fc33](https://github.com/ui5-community/create-easy-ui5/commit/532fc33ed425730043b682e38b03f631f16d61b6))
+- build: update changelog ([6b951e1](https://github.com/ui5-community/create-easy-ui5/commit/6b951e1))
+- build: update depenendencies ([5696b04](https://github.com/ui5-community/create-easy-ui5/commit/5696b04))
+- 1.0.0 ([aeec02c](https://github.com/ui5-community/create-easy-ui5/commit/aeec02c))
+- 1.0.1 ([dc5c80d](https://github.com/ui5-community/create-easy-ui5/commit/dc5c80d))
+- Initial commit ([eb18673](https://github.com/ui5-community/create-easy-ui5/commit/eb18673))
+- chore: update release process ([8e233af](https://github.com/ui5-community/create-easy-ui5/commit/8e233af))
+- fix: bugfix for arguments and polish docs ([29577d1](https://github.com/ui5-community/create-easy-ui5/commit/29577d1))
+- fix: run easy-ui5 in embedded mode ([f9e8178](https://github.com/ui5-community/create-easy-ui5/commit/f9e8178))
+- feat: fully initalize the repo ([532fc33](https://github.com/ui5-community/create-easy-ui5/commit/532fc33))
