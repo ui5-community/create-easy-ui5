@@ -29,6 +29,6 @@ if (generators[0]?.namespace) {
   });
 } else {
   console.error(
-    "Easy-UI5 cannot be found! Please run 'npm i -g generator-easy-ui5'!"
+    "Easy-UI5 cannot be found! Please run 'npm i -g generator-easy-ui5'!",
   );
 }

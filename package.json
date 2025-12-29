@@ -23,21 +23,21 @@
     "start": "node index.js",
     "format": "prettier --write .",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "prepare": "husky install",
+    "prepare": "husky",
     "hooks:pre-commit": "lint-staged",
     "hooks:commit-msg": "commitlint -e"
   },
   "dependencies": {
-    "generator-easy-ui5": "^3.3.0"
+    "generator-easy-ui5": "^3.9.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "16.2.1",
-    "@commitlint/config-conventional": "16.2.1",
-    "conventional-changelog-cli": "^2.2.2",
+    "@commitlint/cli": "20.2.0",
+    "@commitlint/config-conventional": "20.2.0",
+    "conventional-changelog-cli": "^5.0.0",
     "cz-conventional-changelog": "3.3.0",
-    "husky": "^7.0.4",
-    "lint-staged": "12.3.4",
-    "prettier": "^2.5.1"
+    "husky": "^9.1.7",
+    "lint-staged": "16.2.7",
+    "prettier": "^3.7.4"
   },
   "lint-staged": {
     "*.{ts,js,json,md,yml}": [
