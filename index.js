@@ -8,27 +8,30 @@ if (args[0] === "easy-ui5") {
 
 // create the env for the plugin generator
 const yeoman = require("yeoman-environment");
-const env = yeoman.createEnv(args, {
-  cwd: process.cwd(),
-});
 
-// lookup the easy-ui5 generator
-const generators = env
-  .lookup({
+(async () => {
+  const env = yeoman.createEnv(args, {
+    cwd: process.cwd(),
+  });
+
+  // lookup the easy-ui5 generator
+  const allGenerators = await env.lookup({
     localOnly: false,
-  })
-  .filter((sub) => {
+  });
+
+  const generators = allGenerators.filter((sub) => {
     return sub.namespace === "easy-ui5:app";
   });
 
-// finally, run the subgenerator
-if (generators[0]?.namespace) {
-  env.run([generators[0].namespace].concat(args), {
-    // verbose: this.options.verbose,
-    embedded: true,
-  });
-} else {
-  console.error(
-    "Easy-UI5 cannot be found! Please run 'npm i -g generator-easy-ui5'!",
-  );
-}
+  // finally, run the subgenerator
+  if (generators[0]?.namespace) {
+    await env.run([generators[0].namespace].concat(args), {
+      // verbose: this.options.verbose,
+      embedded: true,
+    });
+  } else {
+    console.error(
+      "Easy-UI5 cannot be found! Please run 'npm i -g generator-easy-ui5'!",
+    );
+  }
+})();
