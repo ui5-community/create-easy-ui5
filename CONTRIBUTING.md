@@ -6,7 +6,7 @@
 2. [🤩 **Feature Requests**](#-feature-requests)
 3. [🔍 **Analyzing Issues**](#-analyzing-issues)
 4. [💻 **Contributing Code**](#-contributing-code)
-5. [📦 **Releasing Package**](#-releasing-package)
+5. [📦 **Releasing the Package**](#-releasing-the-package)
 
 ## 📝 Reporting Issues
 
@@ -16,7 +16,7 @@ If you need help setting something up, or if you have questions regarding `creat
 
 ### How to Report an Issue
 
-1. **Only `create-easy-ui5` issues**
+1. **Only `create-easy-ui5` issues** — if the bug is in a generator template, please open the issue at [`generator-easy-ui5`](https://github.com/SAP/generator-easy-ui5) or the relevant community generator instead.
 2. **No duplicate**: You have searched the [issue tracker](https://github.com/ui5-community/create-easy-ui5/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) to make sure the bug has not already been reported.
 3. **Good summary**: The summary should be specific to the issue.
 4. **Current bug**: The bug can be reproduced in the most current version of the relevant module(s).
@@ -30,7 +30,7 @@ If you need help setting something up, or if you have questions regarding `creat
 
 We encourage you to follow the issue template that will be presented to you when creating a new issue.
 
-When you are ready, report your issue here: https://github.com/ui5-community/create-easy-ui5/issues/new
+When you are ready, report your issue here: <https://github.com/ui5-community/create-easy-ui5/issues/new>
 
 ### Use of Labels
 
@@ -56,15 +56,17 @@ GitHub offers labels to categorize issues. The labels can only be set and modifi
 
 ### Issue Reporting Disclaimer
 
-We want to improve the quality of the UI5 Communtiy projects and good bug reports are welcome! But keep in mind that this here is spare-time work and thus the capacity is limited.
+We want to improve the quality of the UI5 Community projects and good bug reports are welcome! But keep in mind that this here is spare-time work and thus the capacity is limited.
 
-Therefore, we reserve the right to close or to not process insufficient bug reports in favor of those which are clearly documented and easy to reproduce. Even though we would like to solve each well-documented issue, there is always the chance that it won't happen - please remember: The UI5 Community projects are Open Source and comes without warranty.
+Therefore, we reserve the right to close or to not process insufficient bug reports in favor of those which are clearly documented and easy to reproduce. Even though we would like to solve each well-documented issue, there is always the chance that it won't happen — please remember: The UI5 Community projects are Open Source and come without warranty.
 
 Bug report analysis support is always very welcome! See [Analyze Issues](#-analyzing-issues).
 
 ## 🤩 Feature Requests
 
-You can request most features by creating an issue in the repository: https://github.com/ui5-community/create-easy-ui5/issues/new
+You can request features by creating an issue in the repository: <https://github.com/ui5-community/create-easy-ui5/issues/new>
+
+Keep in mind that `create-easy-ui5` is a thin wrapper around the [Easy-UI5 Yeoman generator](https://github.com/SAP/generator-easy-ui5). Feature requests that target template/generator behaviour belong upstream at [`generator-easy-ui5`](https://github.com/SAP/generator-easy-ui5) or at the corresponding [community generator](https://github.com/ui5-community/?q=generator-ui5).
 
 ## 🔍 Analyzing Issues
 
@@ -78,89 +80,123 @@ You may be able to add additional or missing information, such as a step-by-step
 
 You are welcome to contribute code to the project in order to fix bugs or to implement new features.
 
-There are three important things to know:
+There are two important things to know:
 
 1. You must be aware of the Apache License (which describes contributions).
 2. **Not all proposed contributions can be accepted**. Some features may just fit a third-party add-on better. The code must match the overall direction of the project and improve it. Before contributing a feature, please open a feature request upfront to discuss the necessity of the feature with the core contributors.
 
+### Pre-Requisites
+
+- A [Long-Term Support version](https://nodejs.org/en/about/releases/) of Node.js, **≥ 20.17**. See [DEPENDENCIES.md](DEPENDENCIES.md) for the rationale.
+- A code editor (preferably the free [Microsoft Visual Studio Code](https://code.visualstudio.com/)).
+- (optional) [commitizen](https://github.com/commitizen/cz-cli#installing-the-command-line-tool) for managing commit messages.
+
 ### How to Contribute
 
 1. Make sure the change is welcome (see [General Remarks](#general-remarks)).
-2. Create a branch by forking the relevant module repository and apply your change.
-3. Commit and push your change on that branch.
-4. Create a pull request in the relevant repository.
-5. Wait for our code review and approval, possibly enhancing your change on request.
-6. Once the change has been approved and merged, we will inform you in a comment.
-7. Let's celebrate together! 🎉
+2. Fork the repository, create a branch, and apply your change.
+3. **Add a changeset** describing the change (see [Adding a Changeset](#adding-a-changeset)).
+4. Commit and push your change.
+5. Create a pull request.
+6. Wait for code review and approval, possibly enhancing your change on request.
+7. Once the change has been approved and merged, we will inform you in a comment.
+8. Let's celebrate together! 🎉
 
-#### Requirements
-
-The technical requirements to contribute to the project are the following:
-
-- A current version of [Node.js](https://nodejs.org/)
-- A code editor (preferably the free [Microsoft Visual Studio Code](https://code.visualstudio.com/))
-
-#### Getting Started
-
-To get started contributing to this project you need to do the following steps:
-
-- Clone the repository
-- Run `npm install`
-
-#### Commit Messages format
-
-This project enforces the [conventional-commits][conventional_commits] commit message formats.
-The possible commits types prefixes are limited to those defined by [conventional-commit-types][commit_types].
-This promotes a clean project history and enabled automatically generating a changelog.
-
-The commit message format will be inspected both on a git pre-commit hook
-and during the central CI build and will **fail the build** if issues are found.
-
-#### Formatting
-
-[Prettier](https://prettier.io/) is used for some of the sub-packages to do a proper code formatting. The formatting is running as part of the `pre-commit` hook.
-
-#### Compiling
-
-This project is implemented using plain ECMAScript without any compilation / transpilation steps.
-
-#### Testing
-
-There is no testing tooling used for this repository so for. To test the project the simplest way is to run it:
+### Getting Started
 
 ```sh
-# run the project
-npm start
+# Clone your fork
+git clone https://github.com/<you>/create-easy-ui5.git
+cd create-easy-ui5
+
+# Install dependencies
+npm install
+
+# Run the CLI locally
+npm start -- [template]
 ```
 
-## 📦 Release Package
+### Commit Messages format
 
-This repository uses [Lerna](https://github.com/lerna/lerna) to manage the release process.
+This project enforces the [conventional-commits](https://www.conventionalcommits.org/) commit message formats. The possible commit type prefixes are limited to those defined by [conventional-commit-types](https://github.com/commitizen/conventional-commit-types). This promotes a clean project history.
+
+The commit message format is inspected both on a `commit-msg` git hook and during the central CI build and will **fail the build** if issues are found.
+
+### Formatting
+
+[Prettier](https://prettier.io/) is used for code formatting. Formatting runs automatically on changed files as part of the `pre-commit` hook (`lint-staged`). To format the whole repository manually:
+
+```sh
+npm run format
+```
+
+### Adding a Changeset
+
+`create-easy-ui5` uses [Changesets](https://github.com/changesets/changesets) for versioning, changelog generation, and publishing. When your PR changes published behaviour, add a changeset:
+
+```sh
+npm run changeset
+```
+
+Answer the prompts:
+
+- **Bump type** — `patch` (bug fixes, internal refactors with no API impact), `minor` (new functionality, backwards compatible), or `major` (breaking changes).
+- **Summary** — one user-facing line that explains the change. This ends up verbatim in `CHANGELOG.md`.
+
+The command writes a file like `.changeset/<random-name>.md`. Commit it together with your code change.
+
+If your PR is docs- or tooling-only and you do not want it to trigger a release, you have two options:
+
+| Option                    | When to use                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Don't add a changeset     | Simplest. The PR can still be merged; it will not appear in the next release notes.                             |
+| `npm run changeset:empty` | Writes an empty `.changeset/*.md` file. Useful if the project later enforces a "must have a changeset" CI gate. |
+
+### Testing
+
+There is no automated test suite for `create-easy-ui5` — it is a very thin wrapper around `generator-easy-ui5`. To exercise it manually:
+
+```sh
+# Run the wrapper against the default Easy-UI5 app generator
+npm start
+
+# Or run it from anywhere (after npm link)
+npm link
+easy-ui5 [template]
+```
+
+## 📦 Releasing the Package
+
+This repository uses [Changesets](https://github.com/changesets/changesets) and GitHub Actions to handle releases — **no local `npm version` or push permissions on `main` are required**.
 
 ### Release Process
 
-First, make sure that you pull the latest state of the GitHub repository and then proceed with the following steps:
+The release flow is fully automated via the [`Release`](.github/workflows/release.yml) workflow:
 
-1. Update the version: `npm version patch|minor|major`
-2. Update the changelog: `npm run changelog`, commit and amend the version change from step 1: `git add . && git commit --amend --no-edit`
-3. Push the new commit and tag: `git push origin --tags`
-4. Inspect the newly artifacts published on npmjs.com.
+- When a PR with one or more `.changeset/*.md` files is merged into `main`, the workflow opens (or updates) a single **`Version Packages`** PR. That PR:
+  - bumps the version in [package.json](package.json) according to the aggregated bump types,
+  - regenerates [CHANGELOG.md](CHANGELOG.md) from the changeset summaries (linked back to the PRs that introduced them via [`@changesets/changelog-github`](https://github.com/changesets/changesets/tree/main/packages/changelog-github)),
+  - refreshes [package-lock.json](package-lock.json).
+- **Review and merge** that `Version Packages` PR when you want to cut a release.
+- On merge, the same workflow publishes the new version to npm — using **OIDC trusted publishing** when configured, with `NPM_BOOTSTRAP_TOKEN` as the fallback — and creates the matching git tag.
+- Inspect the newly published artifact on [npmjs.com](https://www.npmjs.com/package/create-easy-ui5).
 
-A GitHub action will do the needful once the new tag has been pushed.
+You can also trigger the workflow manually via **Actions → Release → Run workflow** — useful if a previous run failed mid-publish.
 
 ### Upgrading the version of the dependencies
 
-To upgrade the version of the dependencies the NPM package `npm-check-updates` is used. The following code snippets shows how to use it:
+To upgrade dependencies, the NPM package [`npm-check-updates`](https://github.com/raineorshine/npm-check-updates) is recommended:
 
 ```bash
-# install the npm-check-updates
+# Install npm-check-updates
 npm install -g npm-check-updates
 
-# check for dependencies to be updated
+# Check for dependencies to be updated
 ncu
 
-# update the dependencies automatically
+# Update the dependencies (review the changes before committing)
 ncu -u
+npm install
 ```
 
-Be careful with major version changes of the dependencies as this might cause additional work to make the package running again.
+Before bumping any dependency to a new major, check [DEPENDENCIES.md](DEPENDENCIES.md) — some packages are intentionally held back because their newer majors drop Node.js 20 support.
