@@ -19,6 +19,9 @@
   "engines": {
     "node": ">=20.17.0"
   },
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "start": "node index.js",
     "format": "prettier --write .",

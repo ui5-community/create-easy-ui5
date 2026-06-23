@@ -1,0 +1,41 @@
+version: 2
+updates:
+  # Keep npm dependencies up to date.
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+    commit-message:
+      prefix: chore
+      include: scope
+    # Group small upgrades into a single PR — fewer changesets to write.
+    groups:
+      patch-and-minor:
+        update-types:
+          - patch
+          - minor
+    # `@commitlint/*` is intentionally held at 20.x (Node 20 compatibility).
+    # See DEPENDENCIES.md.
+    ignore:
+      - dependency-name: "@commitlint/cli"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@commitlint/config-conventional"
+        update-types: ["version-update:semver-major"]
+
+  # Keep GitHub Actions pinned-by-SHA refs up to date.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - github-actions
+    commit-message:
+      prefix: ci
+      include: scope

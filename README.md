@@ -79,6 +79,8 @@ are warmly welcomed.
   pull requests, commit message rules, and the changeset-based release flow.
 - [DEPENDENCIES.md](DEPENDENCIES.md) — why some dependencies are pinned;
   consult this before bumping anything.
+- [SECURITY.md](SECURITY.md) — how to report vulnerabilities and the
+  supply-chain controls in place on this repository.
 - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — the Contributor Covenant we
   follow.
 
