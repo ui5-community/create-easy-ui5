@@ -147,10 +147,12 @@ The command writes a file like `.changeset/<random-name>.md`. Commit it together
 
 If your PR is docs- or tooling-only and you do not want it to trigger a release, you have two options:
 
-| Option                    | When to use                                                                                                     |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Don't add a changeset     | Simplest. The PR can still be merged; it will not appear in the next release notes.                             |
-| `npm run changeset:empty` | Writes an empty `.changeset/*.md` file. Useful if the project later enforces a "must have a changeset" CI gate. |
+| Option                    | When to use                                                                                                                        |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run changeset:empty` | Recommended. Writes an empty `.changeset/*.md` file that satisfies the CI changeset gate without producing a release entry.        |
+| Don't add a changeset     | Only works if the `Changeset present` CI check is skipped (e.g. on a branch other than `main`). On normal PRs, the gate will fail. |
+
+The [`Changeset present`](.github/workflows/changeset.yml) CI check fails any PR against `main` that ships without a `.changeset/*.md`. It is automatically skipped on the auto-generated `changeset-release/main` PR opened by the release workflow.
 
 ### Testing
 
