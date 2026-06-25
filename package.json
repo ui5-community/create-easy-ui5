@@ -34,7 +34,8 @@
     "release-publish": "changeset publish"
   },
   "dependencies": {
-    "generator-easy-ui5": "^3.9.1"
+    "generator-easy-ui5": "^3.9.1",
+    "yeoman-environment": "^5.1.2"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.7.0",
