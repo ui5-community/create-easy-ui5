@@ -20,11 +20,11 @@ development dependencies we currently ship — anything less and at least one
 dependency will fail to install on the project's published minimum Node.js
 version.
 
-| Source of the floor                                            | `engines.node`           |
-| -------------------------------------------------------------- | ------------------------ |
-| `generator-easy-ui5@3.9.1` (runtime)                           | `>=20`                   |
-| `yeoman-environment@5.x` (transitive via `generator-easy-ui5`) | `^20.17.0 \|\| >=22.9.0` |
-| `lint-staged@16.x` (dev)                                       | `>=20.17`                |
+| Source of the floor                            | `engines.node`           |
+| ---------------------------------------------- | ------------------------ |
+| `generator-easy-ui5@3.10.0` (runtime)          | `>=20.17`                |
+| `yeoman-environment@6.x` (direct + transitive) | `^20.17.0 \|\| >=22.9.0` |
+| `lint-staged@16.x` (dev)                       | `>=20.17`                |
 
 Node.js 20 is still an actively-maintained LTS line and broadly used in UI5
 build environments, so we deliberately stop the floor there instead of
@@ -91,14 +91,13 @@ project's Node.js floor.
 
 ---
 
-## Runtime dependency
+## Runtime dependencies
 
-| Package              | Range    | `engines.node` |
-| -------------------- | -------- | -------------- |
-| `generator-easy-ui5` | `^3.9.1` | `>=20`         |
+| Package              | Range     | `engines.node`           |
+| -------------------- | --------- | ------------------------ |
+| `generator-easy-ui5` | `^3.10.0` | `>=20.17`                |
+| `yeoman-environment` | `^6.1.0`  | `^20.17.0 \|\| >=22.9.0` |
 
-This is the only runtime dependency. It pulls in `yeoman-environment@^5.1.2`
-transitively. An open `npm audit` advisory exists against the `yeoman-environment`
-2.x–6.x range that `generator-easy-ui5@3` resolves to — this can only be fixed
-by an upstream `generator-easy-ui5` release that targets `yeoman-environment` ≥ 6.1.
-It is tracked upstream at [`generator-easy-ui5`](https://github.com/SAP/generator-easy-ui5).
+`yeoman-environment` is declared as a direct dependency because
+[`index.js`](index.js) requires it directly; `generator-easy-ui5@3.10.0`
+itself pins the same `^6.1.0` range, so npm dedupes to a single copy.
