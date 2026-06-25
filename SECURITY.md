@@ -57,11 +57,3 @@ or restore them:
   token that exists is a token that can leak.
 - **GitHub repository secrets audit** — periodically prune anything not
   actively used by a workflow.
-
-### Known open advisories
-
-The transitive `yeoman-environment@^5.1.2` that `generator-easy-ui5@3.9.1`
-resolves to has open `npm audit` advisories that cannot be resolved here;
-they require an upstream release of `generator-easy-ui5` that targets
-`yeoman-environment@^6.1` or newer. This is tracked in
-[DEPENDENCIES.md](DEPENDENCIES.md).
